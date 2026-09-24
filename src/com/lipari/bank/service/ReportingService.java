@@ -5,7 +5,6 @@ import com.lipari.bank.model.Transaction;
 import com.lipari.bank.model.TransactionType;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
