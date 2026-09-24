@@ -17,20 +17,14 @@ import java.util.stream.Collectors;
  */
 public class ReportingService {
 
-    private final List<Transaction> debugLog = new ArrayList<>();
-
     /**
      * Conta le transazioni di un dato tipo su tutti i conti forniti.
      */
     public long countTransactionsByType(List<Account> accounts, TransactionType type) {
-        accounts.stream()
-                .flatMap(a -> a.getTransactions().stream())
-                .peek(debugLog::add)
-                .forEach(t -> { /* terminal op */ });
-
-        return debugLog.stream()
-                .filter(t -> t.type() == type)
-                .count();
+        return accounts.stream()
+            .flatMap(a -> a.getTransactions().stream())
+            .filter(t -> t.type() == type)
+            .count();
     }
 
     /** Somma i saldi di tutti i conti. */
